@@ -1,0 +1,16 @@
+# we can use the sum() method to get the total population per year
+df_tot = pd.DataFrame(df_can[years].sum(axis=0))
+
+# change the years to type int (useful for regression later on)
+df_tot.index = map(int, df_tot.index)
+
+# reset the index to put in back in as a column in the df_tot dataframe
+df_tot.reset_index(inplace = True)
+
+# rename columns
+df_tot.columns = ['year', 'total']
+
+# view the final dataframe
+df_tot.head()
+
+
